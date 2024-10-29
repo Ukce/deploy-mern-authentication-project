@@ -42,17 +42,17 @@ function Signup() {
                 body: JSON.stringify(signupInfo)
             });
             const result = await response.json();
-            const {success, message, error}=result;
+            const {success, messege, error}=result;
             if (success){
-                handleSuccess(message);
+                handleSuccess(messege);
                 setTimeout(()=>{
                     navigate('/login')
                 },1000)
             } else if (error) {
-                const details = error.details[0].message;
+                const details = error.details[0].messege;
                 handleError(details);
             } else if (!success) {
-                handleError(message);
+                handleError(messege);
             }
             console.log(result);
         }catch(err){
